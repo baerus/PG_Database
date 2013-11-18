@@ -30,29 +30,13 @@ function showViews() {
 
 function editButtonFunction(id) {
     return function() {
-        navigator.notification.prompt('Howdy', myCallBack, 'TITEL', ['Okii', 'Abbruch!'], 'NICHTS haha!');
-
-//        $('<div>').simpledialog2({
-//            mode: 'button',
-//            headerText: 'Änderung',
-//            headerClose: true,
-//            buttonPrompt: 'Geben Sie den neuen Namen ein',
-//            buttonInput: true,
-//            buttons : {
-//                'Speichern': {
-//                    click: function () {
-//                        database.updateName($.mobile.sdLastInput, id);
-//
-//                        showViews();
-//                    }
-//                }
-//            }
-//        });
+        navigator.notification.prompt('Geben Sie bitte den neuen Namen ein.', function(results) {
+            if(results.buttonIndex == 1) {
+                database.updateName(results.input1, id);
+                showViews();
+            }
+        }, 'Änderung', ['Ok', 'Abbruch'], ' ');
     };
-}
-
-function myCallBack(results) {
-    alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
 }
 
 function deleteButtonFunction(id) {
