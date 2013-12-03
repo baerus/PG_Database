@@ -1,1 +1,15 @@
+.editButton {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    vertical-align: middle;
+    background: url('../img/edit_20.png') center no-repeat;
+}
 
+.deleteButton {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    vertical-align: middle;
+    background: url('../img/delete_20.png') center no-repeat;
+}

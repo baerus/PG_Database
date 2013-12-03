@@ -52,15 +52,7 @@ function deleteButtonFunction(id) {
 
 function createIconButton(fileName) {
     var button = document.createElement('input');
-    button.type = 'image';
-    button.src = 'img/' + fileName + '.png';
-    button.style.width = 'auto';
-    button.style.height = 'auto';
-    button.style.padding = '10px 10px 0 10px';
-
+    button.type = 'button';
+    button.className = fileName + 'Button';
     return button;
-}
-
-function updateName(id) {
-
 }
