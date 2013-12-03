@@ -18,7 +18,7 @@ function showViews() {
             var deleteButton = createIconButton('delete');
             div.appendChild(deleteButton);
 
-            editButton.onclick = editButtonFunction(data[i].id);
+            editButton.onclick = editButtonFunction(data[i].id, data[i].name);
             deleteButton.onclick = deleteButtonFunction(data[i].id);
 
             var text = document.createElement('span');
@@ -28,14 +28,18 @@ function showViews() {
     });
 }
 
-function editButtonFunction(id) {
+function editButtonFunction(id, oldName) {
     return function() {
-        navigator.notification.prompt('Geben Sie bitte den neuen Namen ein.', function(results) {
-            if(results.buttonIndex == 1) {
-                database.updateName(results.input1, id);
-                showViews();
-            }
-        }, 'Änderung', ['Ok', 'Abbruch'], ' ');
+        navigator.notification.prompt('Geben Sie einen neuen Namen für ' + oldName + ' ein.',
+            function(results) {
+                if(results.buttonIndex == 2) {
+                    database.updateName(results.input1, id);
+                    showViews();
+                }
+            },
+            'Namen ändern',
+            ['Abbrechen', 'Speichern'],
+            ' ');
     };
 }
 
