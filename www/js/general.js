@@ -13,10 +13,10 @@ function showViews() {
             // Neue View
             var div = document.createElement('div');
             document.getElementById('nameListView').appendChild(div);
-            var editButton = createIconButton('edit');
-            div.appendChild(editButton);
             var deleteButton = createIconButton('delete');
             div.appendChild(deleteButton);
+            var editButton = createIconButton('edit');
+            div.appendChild(editButton);
 
             editButton.onclick = editButtonFunction(data[i].id, data[i].name);
             deleteButton.onclick = deleteButtonFunction(data[i].id);
